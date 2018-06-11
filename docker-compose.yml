@@ -1,0 +1,19 @@
+version: "2.1"
+services:
+  docker-powerdns-recurs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - ENVIRONMENT=${ENVIRONMENT}
+    image: docker-powerdns-recurs
+    container_name: docker-powerdns-recurs
+    ports:
+      - "53:53"
+      - "53:53/udp"
+    networks:
+      - default
+    command: --local-port=53 --forward-zones=zzz.goldenfrog.com=127.0.0.1:5300
+networks:
+  default:
+
