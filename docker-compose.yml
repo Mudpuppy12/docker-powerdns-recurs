@@ -13,7 +13,7 @@ services:
       - "53:53/udp"
     networks:
       - default
-    command: --local-port=53 --forward-zones=zzz.goldenfrog.com=127.0.0.1:5300
+    command: --local-port=53
 networks:
   default:
 
